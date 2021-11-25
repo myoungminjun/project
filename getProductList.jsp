@@ -47,7 +47,7 @@ for(int i=0; i<productlist.size(); i++){
 	   
 	%>
 	    <ul class="lst">
-			<li class="item1"><a href=""><%=produc.getPronum() %></a></li>
+			<li class="item1"><a href="EditProductFormCtrl?pronum=<%=produc.getPronum() %>"><%=produc.getPronum() %></a></li>
 			<li class="item2"><%=produc.getProname() %></li>
 			<li class="item3"><%=produc.getProprice() %></li>
 			<li class="item4"><%=produc.getProcnt() %></li>

@@ -27,8 +27,7 @@
 			<div class="header">
               <ul class="nav">
                   <li><a href="home.jsp">HOME</a></li>
-                  <li><a href="product.jsp">PRODUCT</a></li>
-                  <li><a href="event.html">EVENT</a></li>
+                  <li><a href="product.jsp">PRODUCT</a></li>       
                   <li><a href="Contact.jsp">CONTACT</a></li>
               </ul>
             </div>

@@ -4,7 +4,7 @@
     <%@ page import="java.util.ArrayList" %>
    <%@ page import="com.company.model.NoticeVO" %>
 <%
-   ArrayList<NoticeVO> notiList = (ArrayList<NoticeVO>) request.getAttribute("noticeList");
+   ArrayList<NoticeVO> notiList = (ArrayList<NoticeVO>) request.getAttribute("notiList");
 %>
 <!DOCTYPE html>
 <html>
@@ -36,11 +36,12 @@ th, td { display:table-cell; }
    <table class="tb">
       <thead>
          <tr>
-            <th class="item1">번호</th>
+            <th class="item1">작성자</th>
             <th class="item2">제목</th>
-            <th class="item3">작성자</th>
+            <th class="item3">게시글 내용</th>
             <th class="item4">작성일시</th>
-            <th class="item5">편집</th>
+            <th class="item5">조회수</th>
+            <th class="item6">편집</th>
          </tr>
       </thead>
       <tbody>      
@@ -52,10 +53,11 @@ th, td { display:table-cell; }
 %>
 
          <tr>
-            <td class="item1"><%=notice.getIdx()%></td>
+            <td class="item1"><a href="EditNoticeFormCtrl?nid=<%=notice.getN_id() %>"><%=notice.getN_id()%></a></td>
             <td class="item2"><%=notice.getTit()%></td>
-            <td class="item3"><%=notice.getN_id()%></td>
+            <td class="item3"><%=notice.getCon()%></td>
             <td class="item4"><%=notice.getRdate()%></td>
+            <td class="item5"><%=notice.getVisited()%></td>
             <td><input type="checkbox" name="ck" id="ck1<%=i %>" value="<%=notice.getIdx()%>" class="ck_item"/></td>
          </tr>   
 <%

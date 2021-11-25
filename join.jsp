@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -103,13 +105,16 @@
             <label>패스워드확인 : </label><input type="password" id="repw"><br>
             <div class="repw regex"></div>
             <br>
+            <label>출생년도: </label><input type="text" name="birth" id="birth"><br>
+            <div class="birth regex"></div>
+            <br>
             <label>이름: </label><input type="text" name="name" id="name"><br>
             <div class="name regex"></div>
             <br>
             <label>우편번호 :</label><input type="text" id="zipcode" placeholder="우편번호" name="zipcode">
             <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" ><br>
-            <label>주소1 : </label><input type="text" id="roadAddress" placeholder="도로명주소" name="roadaddress"><br>
-            <label>주소2 : </label><input type="text" id="detailAddress" placeholder="상세주소" name="detailaddress"><br>
+            <label>주소1 : </label><input type="text" id="address1" placeholder="도로명주소" name="address1"><br>
+            <label>주소2 : </label><input type="text" id="address2" placeholder="상세주소" name="address2"><br>
             <br>
             <div id="signup">
             <input type="submit" name="signup" value="회원가입" id="signupbtn">

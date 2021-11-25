@@ -8,8 +8,8 @@
 	response.setCharacterEncoding("UTF-8");
 	
 	//login.html 에서 보내온 데이터 가져와서 임의 변수에 저장
-	String m_id = request.getParameter("m_id"); 
-	String m_pw = request.getParameter("m_pw");
+	String m_id = request.getParameter("userid"); 
+	String m_pw = request.getParameter("passwd");
 	
 	//연결자, 상태정보자, 결과물저장 객체 선언 및 null 초기화
 	Connection con = null;
@@ -27,7 +27,7 @@
 		//접속
 		con = DriverManager.getConnection(url, id, pw);
 		//sql문 작성
-		sql = "select * from mem where m_id=? and m_pw=?";
+		sql = "select * from member where userid=? and passwd=?";
 		//상태정보 활성화 및 SQL문 처리
 		stmt = con.prepareStatement(sql);
 		stmt.setString(1, m_id);
@@ -41,9 +41,9 @@
 		if(rs.next()){
 			session.setAttribute("id", rs.getString("m_id"));
 			session.setAttribute("pw", rs.getString("m_pw"));
-			session.setAttribute("name", rs.getString("m_name"));
-			m_id = rs.getString("m_id");
-			m_pw = rs.getString("m_pw");
+			session.setAttribute("name", rs.getString("name"));
+			m_id = rs.getString("userid");
+			m_pw = rs.getString("passwd");
 			if(m_id.equals("admin") && m_pw.equals("1234")){
 				response.sendRedirect("admin.jsp");
 			} else {

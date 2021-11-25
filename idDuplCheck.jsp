@@ -20,7 +20,7 @@
 	try {
 		Class.forName("oracle.jdbc.OracleDriver");
 		conn = DriverManager.getConnection(url, id, pw);
-		sql = "select * from mem where m_id=?";
+		sql = "select * from member where userid=?";
 		stmt = conn.prepareStatement(sql);
 		stmt.setString(1, m_id);
 		rs = stmt.executeQuery();

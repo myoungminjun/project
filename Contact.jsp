@@ -81,7 +81,7 @@
 <%@include file ="header.jsp" %>
   <hr>
         <h2 class="title">1:1 문의하기</h2>
-    <form action="contactPro.jsp" method="POST" id="contactform" name="contactform">
+    <form action="ContactPro.jsp" method="POST" id="contactform" name="contactform">
         <div id="wrapper">
             <br>
             <label>아이디: </label><input type="text" name="id" id="id" placeholder="아이디를 입력해주세요"><br>

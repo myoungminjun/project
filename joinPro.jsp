@@ -12,28 +12,28 @@
 		String sql;
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		String m_id = request.getParameter("id");
-		String m_pw = request.getParameter("pw");
-		String m_name = request.getParameter("name");
-		String m_email = request.getParameter("email");
-		String m_tel = request.getParameter("phone");
-		String m_zip = request.getParameter("zipcode");
-		String m_addr1 = request.getParameter("roadaddress");
-		String m_addr2 = request.getParameter("detailaddress");
+		String uid = request.getParameter("userid");
+		String upw = request.getParameter("passwd");
+		int ubirth = Integer.parseInt(request.getParameter("birth"));
+		String urdate = request.getParameter("regdate");
+		String uname = request.getParameter("name");
+		int uzipcode = Integer.parseInt(request.getParameter("zipcode"));
+		String uaddress1 = request.getParameter("address1");
+		String uaddress2 = request.getParameter("address2");
 		
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection(url, id, pw);
-			sql = "insert into mem(m_id, m_pw, m_name, m_email, m_tel, m_zip, m_addr1, m_addr2,  regDate) values (?, ?, ?, ?, ?, ?, ?, ?,  sysdate)";
+			sql = "insert into member(userid, passwd, birth, regdate, name, zipcode, address1, address2) values (?, ?, ?, sysdate, ?, ?, ?, ?)";
 			stmt = conn.prepareStatement(sql);
-			stmt.setString(1, m_id);
-			stmt.setString(2, m_pw);
-			stmt.setString(3, m_name);
-			stmt.setString(4, m_email);
-			stmt.setString(5, m_tel);
-			stmt.setString(6, m_zip);
-			stmt.setString(7, m_addr1);
-			stmt.setString(8, m_addr2);
+			stmt.setString(1, uid);
+			stmt.setString(2, upw);
+			stmt.setInt(3, ubirth);
+			stmt.setString(4, urdate);
+			stmt.setString(5, uname);
+			stmt.setInt(6, uzipcode);
+			stmt.setString(7, uaddress1);
+			stmt.setString(8, uaddress2);
 			
 			int n = stmt.executeUpdate();
 			if(n>=1) {
