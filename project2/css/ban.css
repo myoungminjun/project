@@ -1,0 +1,9 @@
+.vs { clear:both; width:25%; max-height:1000px; } /* width:1000px; */
+.vs .img_box { width: 400%; }  /* width:4000px; */
+.vs .img_box li { width: 25%; float:left; position:relative; padding-top: 50px; } /* width:1000px; */
+.vs .img_box li .vs_img { display:block; width: 100%; height:auto; }
+.vs .tit_box { width: 100%; height:100%;  top: 0; left: 0; z-index:20; }
+.vs_tit { padding-left: 200px; color:#fff; font-size:20px; padding-top: 60px; }
+.vs_com { padding-left: 100px; color:#fff; font-size:9px; padding-top: 20px; }
+.more {  float:right;  font-size:18px; display:block;  width: 100%x; text-align:right; 
+border-radius:24px;}

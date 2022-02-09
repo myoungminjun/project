@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="member">
+	
+	<!-- 회원 목록 가져오기 member.memberList-->
+	<select id="MemberList" resultType="com.board.example.dto.MemberDTO">
+		select userid, passwd, name, email, regdate from member2 
+		order by regdate
+	</select>
+	
+	<!-- 회원 정보 상세 보기 -->
+	<select id="viewMember" resultType="com.board.example.dto.MemberDTO">
+		select * from member2 
+		where userid = #{userid}
+	</select>
+	<!-- 회원가입 -->
+	<insert id="insertMember">
+		insert into member2 (userid,passwd,name,email) values 
+		(#{userid}, #{passwd}, #{name}, #{email})
+	</insert>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="updateMember">
+		update member2 set passwd = #{passwd}, name = #{name}, email = #{email} 
+		where userid = #{userid}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteMember">
+		delete from member2 
+		where userid = #{userid}
+	</delete>
+	
+	<!-- 로그인을 위한 비밀번호 체크 -->
+	<select id="checkpw" resultType="com.board.example.dto.MemberDTO">
+		select * from member2 
+		where userid = #{userid} and passwd = #{passwd}
+	</select>
+	
+	<!-- 관리자를 위한 회원수 카운트 -->
+	<select id="memberCnt" resultType="int">
+       select count(*) from member2
+    </select>
+</mapper>
